@@ -1,17 +1,19 @@
 <div id="<%= dom_id product %>">
-  <p>
+  <div style = "display: flex; justify-content: space-between; margin: 0em 3em;">
     <strong>Name:</strong>
     <%= product.name %>
-  </p>
 
-  <p>
     <strong>Description:</strong>
     <%= product.description %>
-  </p>
 
-  <p>
     <strong>Price:</strong>
     <%= product.price %>
-  </p>
 
+    <%= form_with(url: cart_add_path) do |f| %>
+      <%= f.hidden_field :id, value: product.id %>
+      <%= f.number_field :quantity, value: 0, min: 1 %>
+      <%= f.submit "Add to cart" %>
+    <% end %>
+    
+  </div>
 </div>

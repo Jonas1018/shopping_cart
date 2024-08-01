@@ -1,8 +1,8 @@
 class Cart < ApplicationRecord
-  has_many :orderables  
-  has_many :products, through: :orderables
+  has_many :orders  
+  has_many :products, through: :orders
 
   def total
-    orderables.to_a.sum { |orderable| orderable.total }
+    orders.to_a.sum { |order| order.total }
   end
 end
