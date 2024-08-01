@@ -3,6 +3,6 @@ class Order < ApplicationRecord
   belongs_to :cart
 
   def total
-    product.prize * quantity
+    product.price * quantity
   end
 end
