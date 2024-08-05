@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :subcategories
+  resources :categories
   get 'cart', to: 'cart#show' 
   post 'cart/add'
   post 'cart/remove'
