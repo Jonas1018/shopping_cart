@@ -13,6 +13,8 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @category_options = Category.all.map{|u| [ u.name, u.id ] }
+    @subcategory_options = Subcategory.all.map{|s| [s.name, s.id]}
   end
 
   # GET /products/1/edit
@@ -65,6 +67,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :price)
+      params.require(:product).permit(:name, :description, :price, :category_id, :subcategory_id)
     end
 end

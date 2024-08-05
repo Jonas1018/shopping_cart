@@ -13,6 +13,7 @@ class SubcategoriesController < ApplicationController
   # GET /subcategories/new
   def new
     @subcategory = Subcategory.new
+    @category_options = Category.all.map{ |c| [ c.name, c.id ] }
   end
 
   # GET /subcategories/1/edit
