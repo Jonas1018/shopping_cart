@@ -1,12 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Subcategories</h1>
+<h1><%= link_to "Subcategories", @subcategory %> </h1>
 
 <div id="subcategories">
   <% @subcategories.each do |subcategory| %>
-    <%= render subcategory %>
     <p>
-      <%= link_to "Show this subcategory", subcategory %>
+      <%= link_to subcategory.name, subcategory %>
     </p>
   <% end %>
 </div>

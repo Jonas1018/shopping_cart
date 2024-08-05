@@ -13,12 +13,14 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
-    @category_options = Category.all.map{|u| [ u.name, u.id ] }
+    @category_options = Category.all.map{|c| [ c.name, c.id ] }
     @subcategory_options = Subcategory.all.map{|s| [s.name, s.id]}
   end
 
   # GET /products/1/edit
   def edit
+    @category_options = Category.all.map{|u| [ u.name, u.id ] }
+    @subcategory_options = Subcategory.all.map{|s| [s.name, s.id]}
   end
 
   # POST /products or /products.json
