@@ -9,11 +9,20 @@
             <strong>Price:</strong>
             <%= product.price %>
 
-            <%= form_with(url: cart_add_path) do |f| %>
+        <p>
+            <%= form_with(url: cart_minusOne_path) do |f| %>
                 <%= f.hidden_field :id, value: product.id %>
-                <%= f.number_field :quantity, value: order.quantity, min: 0 %>
-                <%= f.submit "Add to cart" %>
+                <%= f.hidden_field :quantity, value: order.quantity, min: 0 %>
+                <%= f.submit "-" %>
             <% end %>
+
+            <%= form_with(url: cart_plusOne_path) do |f| %>
+                <%= f.hidden_field :id, value: product.id %>
+                <%= f.text_field :quantity, value: order.quantity, min: 0 %>
+                <%= f.submit "+" %>
+            <% end %>
+            
+
             <%= form_with(url: cart_remove_path) do |f| %>
                 <%= f.hidden_field :id, value: order.id %>
                 <%= f.submit "X" %>
