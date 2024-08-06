@@ -1,7 +1,11 @@
 <div id="<%= dom_id category %>">
   <p>
     <strong>Name:</strong>
-    <%= link_to category.name, category %>
+    <% if @link_show %>
+      <%= link_to category.name, category %>
+    <% else %>
+      <%= category.name %>
+    <% end %>
   </p>
 
   <p>
@@ -9,6 +13,15 @@
     <% category.subcategories.each do |subcategory| %>
       <p>
         <%= link_to subcategory.name, subcategory %>
+      </p>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Products:</strong>
+    <% category.products.each do |product| %>
+      <p>
+        <%= render product %>
       </p>
     <% end %>
   </p>

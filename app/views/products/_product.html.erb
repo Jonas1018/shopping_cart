@@ -1,16 +1,20 @@
 <div id="<%= dom_id product %>">
   <div style = "display: flex; justify-content: space-between; margin: 0em 3em;">
     <strong>Name:</strong>
-    <%= product.name %>
+    <% if @link_show %>
+      <%= link_to product.name, product %>
+    <% else %>
+      <%= product.name %>
+    <% end %>
 
     <strong>Description:</strong>
     <%= product.description %>
 
     <strong>Category:</strong>
-    <%= product.category.name %>
+    <%= link_to product.category.name, product.category %>
 
     <strong>Subcategory:</strong>
-    <%= product.subcategory.name %>
+    <%= link_to product.subcategory.name, product.subcategory %>
 
     <strong>Price:</strong>
     <%= product.price %>

@@ -1,7 +1,7 @@
 class CartController < ApplicationController
   def show
     @render_cart = false
-    @link_cart = false
+    @link_show_cart = false
   end
 
   def add
@@ -27,7 +27,7 @@ class CartController < ApplicationController
   end
 
   def plusOne
-    @link_cart = false
+    @link_show_cart = false
     @product = Product.find_by(id: params[:id])
     quantity = params[:quantity].to_i
     current_order = @cart.orders.find_by(product_id: @product.id)
@@ -50,7 +50,7 @@ class CartController < ApplicationController
   end
 
   def minusOne
-    @link_cart = false
+    @link_show_cart = false
     @product = Product.find_by(id: params[:id])
     quantity = params[:quantity].to_i
     current_order = @cart.orders.find_by(product_id: @product.id)

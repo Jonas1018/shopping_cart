@@ -4,10 +4,12 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @products = Product.all
+    @categories = Category.all
   end
 
   # GET /products/1 or /products/1.json
   def show
+    @link_show = false
   end
 
   # GET /products/new
